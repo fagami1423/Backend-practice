@@ -10,5 +10,9 @@ The default url for the application will be
 http://localhost:8000/docs
 ```
 Or open test using Postman or Isomnia
-### Task 1
+### Tasks
 1: File handling
+2: Testing Models 
+3: Generating musics
+4: Containerize
+4: Implement CICD pipelines
