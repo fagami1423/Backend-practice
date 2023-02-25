@@ -1,2 +1,2 @@
-music/
-__pycache__/
+/music/*
+/__pycache__/*
