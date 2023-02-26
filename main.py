@@ -46,3 +46,55 @@ def get_music():
         return {"file_urls": file_urls}
     else:
         return {"error": "No files found in the music folder."}
+    
+@app.get("/developers")
+def get_developers():
+    developers = [
+        {
+            "id":1,
+            "name":'Raj Kumar Phagami',
+            "profession":"AI Engineer",
+            "email":"magar.fagami@gmail.com",
+            "phone":"+1 647 404 7685",
+            "image":"", 
+            "text":""   
+        },
+        {
+            "id":2,
+            "name":'Mandil Karki',
+            "profession":"NLP Engineer",
+            "email":"mandilkarki4444@gmail.com",
+            "phone":"+1 647 404 7685",
+            "image":"", 
+            "text":""   
+        },
+        {
+            "id":3,
+            "name":'Kshitiz Bhattarai',
+            "profession":"ML Engineer",
+            "email":"xhitiz1@gmail.com",
+            "phone":"+1 672 985 0615",
+            "image":"", 
+            "text":""   
+        },
+        {
+            "id":4,
+            "name":'Rajiv Karki',
+            "profession":"Data Engineer",
+            "email":"raziv.luilel@gmail.com",
+            "phone":"+1 672 985 0615",
+            "image":"", 
+            "text":""   
+        },
+        {
+            "id":5,
+            "name":'Trishala Pradhan',
+            "profession":"Data Analyst",
+            "email":"trishalapradhan.tp@gmail.com",
+            "phone":"+1 672 985 0615",
+            "image":"", 
+            "text":""   
+        }
+    ]
+    return {"persons":developers}
+    
