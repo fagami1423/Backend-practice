@@ -97,4 +97,7 @@ def get_developers():
         }
     ]
     return {"persons":developers}
-    
+
+@app.get("/chatbot")
+def get_chatbot():
+    return {"response":"Chatbot Response Here Please"} 
