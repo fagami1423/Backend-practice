@@ -100,4 +100,9 @@ def get_developers():
 
 @app.get("/chatbot")
 def get_chatbot():
+    """load the model that predicts the response for the text given by the users
+
+    Returns:
+        string: it returns the text predicted by the model
+    """
     return {"response":"Chatbot Response Here Please"} 
