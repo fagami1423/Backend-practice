@@ -18,7 +18,7 @@ app.add_middleware(
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"]
 )
 
 # Mount the "music" folder as a static directory
@@ -106,3 +106,11 @@ def get_chatbot():
         string: it returns the text predicted by the model
     """
     return {"response":"Chatbot Response Here Please"} 
+
+
+@app.post("get-parameters")
+def get_parameters(parameters:list):
+    """
+    Load the parameters and let the model 
+    """
+    return {"response":"model generates music"}
