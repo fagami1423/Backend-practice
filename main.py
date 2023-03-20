@@ -108,7 +108,7 @@ def get_chatbot():
     return {"response":"Chatbot Response Here Please"} 
 
 
-@app.post("get-parameters")
+@app.post("/get-parameters")
 def get_parameters(parameters:list):
     """
     Load the parameters and let the model 
