@@ -1,8 +1,16 @@
 import io,os
-from fastapi import FastAPI, UploadFile, File
+from pydantic import BaseModel
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+
+class UploadForm(BaseModel):
+    beamsize: int
+    temperature: float
+    branchFactor: int
+    notes: str
+    totalSteps: int
 
 app = FastAPI()
 
@@ -25,7 +33,13 @@ app.add_middleware(
 app.mount("/music", StaticFiles(directory="music"), name="music")
 
 @app.post("/upload-music")
-async def create_upload_file(file: UploadFile = File(...)):
+async def create_upload_file(file: UploadFile = File(...),
+                beamsize: int = Form(...),
+                temperature: float = Form(...),
+                branchFactor: int = Form(...),
+                notes: str = Form(...),
+                totalSteps: int = Form(...)):
+    
     if not os.path.exists('music'):
         os.makedirs("music")
         file_location = os.path.join("music", file.filename)
@@ -35,7 +49,15 @@ async def create_upload_file(file: UploadFile = File(...)):
         file_location = os.path.join("music", file.filename)
         with open(file_location, "wb") as buffer:
             buffer.write(await file.read())  
-    return {"filename": file.filename,"status":200}
+    return {
+        "filename": file.filename,
+        "content_type": file.content_type,
+        "beamsize": beamsize,
+        "temperature": temperature,
+        "branchFactor": branchFactor,
+        "notes": notes,
+        "totalSteps": totalSteps
+    }
 
 @app.get("/get-music")
 def get_music():
